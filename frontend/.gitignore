@@ -4,9 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/public
+/pac
 # testing
 /coverage
+/package-lock.json
+/package.json
+/README.md
 
 # production
 /build

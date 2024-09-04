@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 
@@ -11,6 +10,10 @@
 //     // Handle form submission (e.g., send a request to your server)
 //     console.log('Email:', email);
 //     console.log('Password:', password);
+//     alert('Login successful!');
+//     // Optionally, clear the form
+//     setEmail('');
+//     setPassword('');
 //   };
 
 //   return (
@@ -47,13 +50,14 @@
 // }
 
 // export default Login;
-// src/components/Login.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,6 +65,10 @@ function Login() {
     console.log('Email:', email);
     console.log('Password:', password);
     alert('Login successful!');
+
+    // Navigate to the user type selection page
+    navigate('/user-type');
+    
     // Optionally, clear the form
     setEmail('');
     setPassword('');

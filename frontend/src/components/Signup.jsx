@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 // import { Link } from 'react-router-dom';
 
@@ -21,6 +20,13 @@
 //     e.preventDefault();
 //     // Handle form submission (e.g., send data to a server)
 //     console.log('Form submitted:', formData);
+//     alert('Signup successful!');
+//     // Optionally, clear the form
+//     setFormData({
+//       username: '',
+//       email: '',
+//       password: '',
+//     });
 //   };
 
 //   return (
@@ -72,9 +78,8 @@
 // export default Signup;
 
 
-// src/Signup.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -82,6 +87,7 @@ const Signup = () => {
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,17 +97,24 @@ const Signup = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to a server)
-    console.log('Form submitted:', formData);
-    alert('Signup successful!');
-    // Optionally, clear the form
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-    });
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Signup successful!');
+        navigate('/user-type'); // Navigate to the user type selection page
+      } else {
+        alert(data.msg);
+      }
+    } catch (error) {
+      console.error('Signup error:', error);
+    }
   };
 
   return (
@@ -143,9 +156,6 @@ const Signup = () => {
         </div>
         <button type="submit">Sign Up</button>
       </form>
-      <p>
-        Already have an account? <Link to="/login">Login here</Link>
-      </p>
     </div>
   );
 };

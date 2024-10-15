@@ -19,6 +19,7 @@ import React from 'react';
 import Signup from './components/Signup'; // Adjust path if necessary
 import Login from './components/Login'; // Adjust path if necessary
 import UserTypeSelection from './components/UserTypeSelection'; // Import the new component
+import WriterPage from './components/WriterPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user-type" element={<UserTypeSelection />} /> {/* New route */}
         {/* Add routes for Reader and Writer if needed */}
+        <Route path="/writer" element={<WriterPage />} />
       </Routes>
     </Router>
   );

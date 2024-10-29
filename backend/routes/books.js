@@ -1,5 +1,5 @@
 
-// books.js
+ // books.js
 const express = require('express');
 const multer = require('multer');
 const Book = require('../models/Book');
@@ -46,6 +46,30 @@ router.post('/publish', authMiddleware, upload.single('coverImage'), async (req,
     }
 });
 
-module.exports = router;
 
+
+// Get all books
+router.get('/', async (req, res) => {
+    try {
+        const books = await Book.find(); // Fetch all books from the database
+        res.json(books);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+// Get a single book by ID
+router.get('/:id', async (req, res) => {
+    try {
+        const book = await Book.findById(req.params.id); // Find a book by its ID
+        if (!book) return res.status(404).json({ message: "Book not found" });
+        res.json(book);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+module.exports = router;
 

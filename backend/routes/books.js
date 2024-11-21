@@ -1,8 +1,9 @@
+// balck box ai
 
- // books.js
 const express = require('express');
 const multer = require('multer');
 const Book = require('../models/Book');
+const Feedback = require('../models/Feedback'); // Import Feedback model
 const authMiddleware = require('../middleware/authMiddleware');
 const path = require('path');
 
@@ -46,8 +47,6 @@ router.post('/publish', authMiddleware, upload.single('coverImage'), async (req,
     }
 });
 
-
-
 // Get all books
 router.get('/', async (req, res) => {
     try {
@@ -71,5 +70,42 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Submit feedback for a book
+router.post('/:id/feedback', authMiddleware, async (req, res) => {
+    const { rating, feedback } = req.body;
+    const bookId = req.params.id;
+
+    // Validate incoming data
+    if (!rating || !feedback) {
+        return res.status(400).json({ message: "Rating and feedback are required." });
+    }
+
+    try {
+        const newFeedback = new Feedback({
+            book: bookId,
+            user: req.user.id, // User ID from the token
+            rating,
+            feedback,
+        });
+
+        await newFeedback.save(); // Save feedback to the database
+
+        // Optionally, you can push the feedback ID to the book's feedback array
+        await Book.findByIdAndUpdate(bookId, { $push: { feedbacks: newFeedback._id } });
+
+        res.status(201).json({ message: "Feedback submitted successfully", feedback: newFeedback });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 module.exports = router;
+
+
+
+
+
+
+
 

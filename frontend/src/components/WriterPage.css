@@ -1,109 +1,148 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: "BookReview/frontend/src/components/writer9_4e3f18f8.jpg";
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .writer-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: rgb(118, 175, 102); /* Darker background color */
-    min-height: 100vh; /* Full viewport height */
-    color: black; /* Text color */
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .page-title {
-    font-size: 30px; /* Font size for the heading */
-    margin-bottom: 20px; /* Space below the heading */
-    color: black; /* Color for the title */
-    font-family: sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .writer-form {
     width: 100%;
-    max-width: 800px; /* Limit the width for better appearance */
+    max-width: 800px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
+
 }
 
 .upload-container {
-    display: flex; /* Use flexbox to arrange items horizontally */
-    align-items: flex-start; /* Align items at the start */
+    display: flex;
+    gap: 30px;
 }
 
 .upload-image-container {
-    width: 100%;
-    aspect-ratio: 1; /* Keep it square */
-    max-width: 150px; /* Set a max width for the image box */
-    background-color: white; /* Background for image upload box */
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 15px curve #ccc; /* Grooved border for image upload box */
-    margin-right: 20px; /* Space between upload and input boxes */
-    position: relative; /* For absolute positioning of the input */
-    overflow: hidden; /* Hide overflow to contain the image */
+    border: 2px dashed #999;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.upload-image-container:hover {
+    border-color: #5e4daa;
 }
 
 .uploaded-image {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit: cover; /* Scale image to cover the box without distortion */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .image-upload {
-    opacity: 0; /* Hide the default file input */
-    position: absolute; /* Positioning over the container */
+    opacity: 0;
+    position: absolute;
     width: 100%;
     height: 100%;
-    cursor: pointer; /* Cursor indicates it's clickable */
+    cursor: pointer;
 }
 
 .book-details {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between inputs */
+    gap: 20px;
 }
 
 .input-box {
-    padding: 10px;
+    padding: 15px;
     font-size: 16px;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: white; /* Background for inputs */
-    color: black; /* Text color for inputs */
+    border: none;
+    border-bottom: 2px solid #5e4daa;
+    background-color: transparent;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.input-box:focus {
+    outline: none;
+    border-bottom-color: #5b6eae;
 }
 
 .input-box::placeholder {
-    color: black; /* Placeholder text color */
+    color: #999;
 }
 
 .story-container {
     width: 100%;
-    border: 1px solid #ccc; /* Light grey border */
-    border-radius: 15px; /* Curved corners */
-    overflow: hidden; /* Hide overflow */
-    margin: 20px 0; /* Space above and below */
+    border: 2px solid #5e4daa;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .story-box {
     width: 100%;
-    height: 500px; /* Increased height for the story box */
-    padding: 10px;
+    height: 400px;
+    padding: 20px;
     font-size: 16px;
-    border: none; /* Remove default border */
-    outline: none; /* Remove outline on focus */
-    resize: none; /* Prevent resizing */
-    background-color: white; /* Background for the story box */
-    color: black; /* Text color for the story box */
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #fff;
+    color: #333;
 }
 
 .submit-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #5e4daa; /* Bluish background for button */
-    color: white; /* Text color for button */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor for button */
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #5e4daa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
 }
 
 .submit-button:hover {
-    background-color: #5b6eae; /* Darker blue on hover */
+    background-color: #5b6eae;
+}
+
+@media (max-width: 768px) {
+    .upload-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-details {
+        width: 100%;
+    }
+
+    .submit-button {
+        align-self: center;
+    }
 }

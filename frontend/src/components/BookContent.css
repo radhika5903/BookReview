@@ -4,7 +4,7 @@
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-image: "BookReview/frontend/src/components/new_reader5-eb8f-439a-aa10-98ad74a4a03d[1].jpg";
   border: 1px solid #ddd;
   border-radius: 8px;
 }
@@ -67,8 +67,6 @@
 .back-button:hover {
   background-color: #555;
 }
-
-
 
 
 
@@ -238,6 +236,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   background-color: #f9f9f9;
+  opacity: 0.8;
 }
 
 .feedback-box textarea {

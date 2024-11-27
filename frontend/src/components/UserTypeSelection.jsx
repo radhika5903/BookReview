@@ -28,7 +28,11 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './UserTypeSelection.css';  // Make sure to import the CSS file
+
+
+
 
 function UserTypeSelection() {
   const navigate = useNavigate();

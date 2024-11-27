@@ -1,3 +1,4 @@
+
 /* styles.css */
 body, html {
   margin: 0;
@@ -7,7 +8,7 @@ body, html {
   background-image: url('WhatsApp Image 2024-11-25 at 21.30.17_15e409e2.jpg'); /* Your background image */
   background-size: cover; /* Make sure the image covers the entire screen */
   background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-repeat: no-repeat;  /* Black background for the whole page */
 }
 
 .centered-box {
@@ -46,10 +47,10 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: rgb(96, 204, 96); /* Green-colored buttons */
+  background-color: green; /* Green-colored buttons */
   color: white;
   border: none;
-  border-radius: 5px 20px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }

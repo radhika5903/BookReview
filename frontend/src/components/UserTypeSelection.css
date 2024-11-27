@@ -1,40 +1,39 @@
 /* UserTypeSelection.css */
 .user-type-selection {
-    display: flex;
-    flex-direction: column;  /* Stack the content vertically */
-    justify-content: center; /* Vertically center content */
-    align-items: center;     /* Horizontally center content */
-    height: 100vh;           /* Take full viewport height */
-    text-align: center;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 80px; /* Space between the buttons */
-  }
-  
-  .user-type-button {
-    padding: 75px 80px;
-    border-radius: 30px;  /* Oval shape */
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
-  }
-  
-  .user-type-button:hover {
-    background-color: #81C784; /* Light green on hover */
-  }
-  
-  .user-type-button:focus {
-    outline: none; /* Removes the outline when clicked */
-  }
-  
+  display: flex;
+  flex-direction: column;  /* Stack the content vertically */
+  justify-content: center; /* Vertically center content */
+  align-items: center;     /* Horizontally center content */
+  height: 100vh;           /* Take full viewport height */
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Space between the buttons */
+}
+
+.user-type-button {
+  padding: 75px 80px;
+  border-radius: 30px;  /* Oval shape */
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+.user-type-button:hover {
+  background-color: #81C784; /* Light green on hover */
+}
+
+.user-type-button:focus {
+  outline: none; /* Removes the outline when clicked */
+}

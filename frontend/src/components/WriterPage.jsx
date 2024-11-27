@@ -56,6 +56,7 @@ const WriterPage = () => {
 
     return (
         <div className="writer-page">
+            <a href="http://localhost:3000/user-type"><button className="back-button">⬅ Back</button></a>
             <h1 className="page-title">Publish Your Book</h1>
             <form className="writer-form" onSubmit={handleSubmit}>
                 <div className="upload-container">
